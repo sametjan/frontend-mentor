@@ -3,7 +3,7 @@ import { SunIcon, MoonIcon } from "@heroicons/react/outline";
 
 export default function DarkModeToggle({ onClick, value }) {
   return (
-    <div className="m-4 flex items-center space-x-3">
+    <div className="flex items-center space-x-3">
       <SunIcon className="h-6 w-6 text-slate-800 dark:text-slate-200" />
       <Switch
         checked={value}

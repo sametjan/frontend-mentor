@@ -1,11 +1,13 @@
 import { useState } from "react";
 import {
+  Link,
   Links,
   LiveReload,
   Meta,
   Outlet,
   Scripts,
   ScrollRestoration,
+  useLocation,
 } from "remix";
 import type { MetaFunction } from "remix";
 
@@ -17,6 +19,7 @@ export const meta: MetaFunction = () => {
 
 export default function App() {
   const [darkMode, setDarkMode] = useState(false);
+  const location = useLocation();
   const toggleDarkMode = () => setDarkMode(!darkMode);
   return (
     <html lang="en" className={`h-full ${darkMode ? "dark" : ""}`}>
@@ -27,7 +30,18 @@ export default function App() {
         <Links />
       </head>
       <body className="">
-        <header className="flex items-center justify-end">
+        <header className="p-4 flex items-center justify-between">
+          {location.pathname !== "/" ? (
+            <Link
+              to="/"
+              className="inline-block px-3 py-2 rounded text-slate-800 dark:text-slate-200
+              hover:bg-slate-300 hover:text-slate-600 dark hover:bg-slate-600 dark:hover:text-slate-300"
+            >
+              &larr; Back
+            </Link>
+          ) : (
+            <div />
+          )}
           <DarkModeToggle onClick={toggleDarkMode} value={darkMode} />
         </header>
         <Outlet />

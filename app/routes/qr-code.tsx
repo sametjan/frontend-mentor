@@ -1,4 +1,3 @@
-import { useState } from "react";
 import type { LinksFunction } from "remix";
 
 import styles from "~/styles/routes/qr-code.css";
