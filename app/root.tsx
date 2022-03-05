@@ -29,13 +29,12 @@ export default function App() {
         <Meta />
         <Links />
       </head>
-      <body className="bg-white dark:bg-slate-800 text-slate-800 dark:text-slate-200">
+      <body>
         <header className="p-4 flex items-center justify-between mb-4 border-b-2 border-slate-200 dark:border-slate-600">
           {location.pathname !== "/" ? (
             <Link
               to="/"
-              className="inline-block px-3 py-2 rounded text-slate-800 dark:text-slate-200
-              hover:bg-slate-300 hover:text-slate-600 dark hover:bg-slate-600 dark:hover:text-slate-300"
+              className="inline-block px-3 py-2 rounded text-slate-800 dark:text-slate-200 hover:bg-slate-300 hover:text-slate-600 dark:hover:bg-slate-600 dark:hover:text-slate-300"
             >
               &larr; Back
             </Link>
