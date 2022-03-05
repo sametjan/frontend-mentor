@@ -9,7 +9,7 @@ import {
   ScrollRestoration,
   useLocation,
 } from "remix";
-import type { MetaFunction } from "remix";
+import type { LinksFunction, MetaFunction } from "remix";
 
 import DarkModeToggle from "~/components/DarkModeToggle";
 
@@ -29,8 +29,8 @@ export default function App() {
         <Meta />
         <Links />
       </head>
-      <body className="">
-        <header className="p-4 flex items-center justify-between">
+      <body className="bg-white dark:bg-slate-800 text-slate-800 dark:text-slate-200">
+        <header className="p-4 flex items-center justify-between mb-4 border-b-2 border-slate-200 dark:border-slate-600">
           {location.pathname !== "/" ? (
             <Link
               to="/"
@@ -40,7 +40,9 @@ export default function App() {
               &larr; Back
             </Link>
           ) : (
-            <div />
+            <h1 className="font-sans text-3xl font-extrabold">
+              Fontend Mentor Projects
+            </h1>
           )}
           <DarkModeToggle onClick={toggleDarkMode} value={darkMode} />
         </header>
