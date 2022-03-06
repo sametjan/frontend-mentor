@@ -1,0 +1,11 @@
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply h-full flex flex-col text-lg bg-light-gray  dark:bg-very-dark-blue-900;
+  }
+}
