@@ -25,6 +25,15 @@ export default function Index() {
             QR code component
           </Link>
         </li>
+        <li>
+          <Link
+            to="/nft-card"
+            className="underline underline-offset-2 text-slate-800
+            dark:text-slate-200 hover:text-red-700 dark:hover:text-red-700"
+          >
+            NFT card component
+          </Link>
+        </li>
       </ol>
     </div>
   );

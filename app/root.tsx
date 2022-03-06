@@ -12,10 +12,13 @@ import {
 import type { LinksFunction, MetaFunction } from "remix";
 
 import DarkModeToggle from "~/components/DarkModeToggle";
+import styles from "~/styles/root.css";
 
 export const meta: MetaFunction = () => {
   return { title: "New Remix App" };
 };
+
+export const links: LinksFunction = () => [{ rel: "stylesheet", href: styles }];
 
 export default function App() {
   const [darkMode, setDarkMode] = useState(false);
@@ -40,7 +43,7 @@ export default function App() {
             </Link>
           ) : (
             <h1 className="font-sans text-3xl font-extrabold">
-              Fontend Mentor Projects
+              Frontend Mentor Projects
             </h1>
           )}
           <DarkModeToggle onClick={toggleDarkMode} value={darkMode} />
