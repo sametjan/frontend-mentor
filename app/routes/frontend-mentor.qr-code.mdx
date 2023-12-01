@@ -4,9 +4,10 @@ meta:
   - description: My solution to the QR Code Component challenge on Frontend Mentor
 difficulty: newbie
 ---
+import qrCode from '~/assets/image-qr-code.png'
 
-<div>
-  <div className="prose-sm md:prose lg:prose-lg">
+<div className="flex flex-col gap-y-4">
+  <div className="prose-sm md:prose lg:prose-lg w-full">
     # QR Code Component
 
     ## Brief
@@ -17,6 +18,14 @@ difficulty: newbie
 
     Download the starter code and go through the `README.md` file. This will provide further details about the project. The `style-guide.md` file is where you'll find colors, fonts, etc.
 
-    [Do the challenge yourself](https://www.frontendmentor.io/challenges/qr-code-component-iux_sIO_H).
+    - [Do the challenge yourself](https://www.frontendmentor.io/challenges/qr-code-component-iux_sIO_H).
+    - [View the source code for this file](https://github.com/sametjan/frontend-mentor/blob/main/app/routes/frontend-mentor.qr-code.mdx)
+  </div>
+  <div className="w-full flex justify-center align-middle bg-slate-200 py-20">
+    <div className="bg-white flex flex-col gap-y-6 w-80 justify-center p-4 rounded-3xl shadow-lg shadow-black/5 text-center">
+      <img src={qrCode} alt="QR Code" className="w-72 h-72 rounded-2xl" />
+      <h3 className="text-blue-950 text-[1.375rem] font-bold font-outfit" style={{textWrap: 'balance'}}>Improve your front-end skills by building projects</h3>
+      <p className="text-slate-500 text-base font-normal tracking-tight px-4 pb-6 font-outfit">Scan the QR code to visit Frontend Mentor and take your coding skills to the next level</p>
+    </div>
   </div>
 </div>
