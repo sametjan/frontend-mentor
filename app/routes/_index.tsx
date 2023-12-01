@@ -7,44 +7,28 @@ export const meta: MetaFunction = () => {
   ];
 };
 
+/**
+ * Home page for a collection of Frontend Mentor challenges.
+ * Should include the following features:
+ * - Instructions to use menu on the left to choose a challenge to view
+ * - Pleasnt design with support for light and dark mode
+ * - Responsive layout
+ * @returns ReactElement
+ */
 export default function Index() {
   return (
-    <div className="m-20">
-      <h1 className="text-2xl font-bold text-slate-900 mb-3">
-        Welcome to Remix
-      </h1>
-      <ul className="list-disc">
-        <li>
-          <a
-            target="_blank"
-            href="https://remix.run/tutorials/blog"
-            rel="noreferrer"
-            className="text-blue-600 hover:text-blue-700 hover:underline underline-offset-2"
-          >
-            15m Quickstart Blog Tutorial
-          </a>
-        </li>
-        <li>
-          <a
-            target="_blank"
-            href="https://remix.run/tutorials/jokes"
-            rel="noreferrer"
-            className="text-blue-600 hover:text-blue-700 hover:underline underline-offset-2"
-          >
-            Deep Dive Jokes App Tutorial
-          </a>
-        </li>
-        <li>
-          <a
-            target="_blank"
-            href="https://remix.run/docs"
-            rel="noreferrer"
-            className="text-blue-600 hover:text-blue-700 hover:underline underline-offset-2"
-          >
-            Remix Docs
-          </a>
-        </li>
-      </ul>
+    <div className="flex flex-col items-center justify-center min-h-full">
+      <main className="flex flex-col items-center justify-center flex-1 px-20 text-center">
+        <h1
+          className="text-6xl font-bold text-balance"
+          style={{ textWrap: 'balance' }}
+        >
+          Welcome to my Frontend Mentor solutions!
+        </h1>
+        <p className="mt-3 text-2xl">
+          Get started by choosing a challenge from the menu on the left
+        </p>
+      </main>
     </div>
   );
 }
