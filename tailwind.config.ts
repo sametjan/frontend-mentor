@@ -6,6 +6,7 @@ export default {
     extend: {
       fontFamily: {
         'outfit': ['Outfit', 'sans-serif'],
+        'work-sans': ['Work Sans', 'sans-serif'],
       }
     },
   },
@@ -13,6 +14,7 @@ export default {
     require('@tailwindcss/typography'),
     require('@tailwindcss/aspect-ratio'),
     require('@tailwindcss/forms'),
+    require('@headlessui/tailwindcss')
   ],
   darkMode: 'class',
 } satisfies Config

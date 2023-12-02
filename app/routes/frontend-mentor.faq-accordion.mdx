@@ -1,0 +1,100 @@
+---
+meta:
+  - title: FAQ accordion
+  - description: My solution to the FAQ accordion challenge on Frontend Mentor
+difficulty: newbie
+---
+import {json} from '@remix-run/node';
+import {useLoaderData} from '@remix-run/react';
+import { Disclosure, Transition } from '@headlessui/react';
+import bgDesktop from '~/assets/faq-accordian/background-pattern-desktop.svg';
+import bgMobile from '~/assets/faq-accordian/background-pattern-mobile.svg';
+import iconMinus from '~/assets/faq-accordian/icon-minus.svg';
+import iconPlus from '~/assets/faq-accordian/icon-plus.svg';
+import iconStar from '~/assets/faq-accordian/icon-star.svg';
+
+export const loader = async () => {
+  const faqs = [
+    {
+      question: "What is Frontend Mentor, and how will it help me?",
+      answer: "Frontend Mentor offers realistic coding challenges to help developers improve their frontend coding skills with projects in HTML, CSS, and JavaScript. It's suitable for all levels and ideal for portfolio building."
+    },
+    {
+      question: "Is Frontend Mentor free?",
+      answer: "Yes, Frontend Mentor offers both free and premium coding challenges, with the free option providing access to a range of projects suitable for all skill levels."
+    },
+    {
+      question: "Can I use Frontend Mentor projects in my portfolio?",
+      answer: "Yes, you can use projects completed on Frontend Mentor in your portfolio. It's an excellent way to showcase your skills to potential employers!"
+    },
+    {
+      question: "How can I get help if I'm stuck on a challenge?",
+      answer: "The best place to get help is inside Frontend Mentor's Discord community. There's a help channel where you can ask questions and seek support from other community members."
+    }
+  ]
+  return json({faqs})
+}
+
+export function FAQs() {
+  const {faqs} = useLoaderData();
+
+  return (
+    <div className="w-full py-10 bg-violet-50 bg-gradient-to-b from-purple-950 from-[20rem] to-violet-50 to-[20rem]">
+      <div className="bg-white rounded-2xl p-10 w-[32.5rem] mt-[8.46875rem] flex flex-col mx-auto shadow-xl shadow-black/5">
+        <div className="flex flex-row justify-start items-center gap-x-6">
+          <img src={iconStar} alt="Simplified star icon" className="w-10 h-10" />
+          <h1 className="text-zinc-800 font-bold font-work-sans text-5xl">FAQs</h1>
+        </div>
+        <div className="group group:border">
+          {faqs.map((faq, index) => (
+            <Disclosure key={index}>
+              <Disclosure.Button
+                className="w-full mx-0 text-zinc-800 text-base font-semibold font-work-sans flex flex-row justify-between items-center py-4 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-zinc-800"
+              >
+                {faq.question}
+                <img src={iconPlus} alt="Expand the accordian" className="h-7 w-7 ui-not-open:block ui-open:hidden" />
+                <img src={iconMinus} alt="Expand the accordian" className="h-7 w-7 ui-not-open:hidden ui-open:block" />
+              </Disclosure.Button>
+              <Transition
+                enter="transition duration-100 ease-out"
+                enterFrom="transform scale-95 opacity-0"
+                enterTo="transform scale-100 opacity-100"
+                leave="transition duration-75 ease-out"
+                leaveFrom="transform scale-100 opacity-100"
+                leaveTo="transform scale-95 opacity-0"
+              >
+                <Disclosure.Panel>
+                  <p>{faq.answer}</p>
+                </Disclosure.Panel>
+              </Transition>
+            </Disclosure>
+          ))}
+        </div>
+      </div>
+    </div>
+  )
+}
+
+<div className="flex flex-col gap-y-4">
+  <div className="prose-sm md:prose lg:prose-lg w-full">
+    # FAQ accordion
+
+    ## Brief
+
+    Your challenge is to build out this FAQ accordion and get it looking as close to the design as possible.
+
+    You can use any tools you like to help you complete the challenge. So if you've got something you'd like to practice, feel free to give it a go.
+
+    Your users should be able to:
+    - Hide/Show the answer to a question when the question is clicked
+    - Navigate the questions and hide/show answers using keyboard navigation alone
+    - View the optimal layout for the interface depending on their device's screen size
+    - See hover and focus states for all interactive elements on the page
+    
+    Download the starter code and go through the README.md file. This will provide further details about the project. The style-guide.md file is where you'll find colors, fonts, etc.
+
+    - [Do the challenge yourself](https://www.frontendmentor.io/challenges/faq-accordion-wyfFdeBwBz).
+    - [View the source code for this file](https://github.com/sametjan/frontend-mentor/blob/main/app/routes/frontend-mentor.faq-accordion.mdx)
+  </div>
+  <FAQs/>
+</div>
